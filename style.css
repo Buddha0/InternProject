@@ -29,6 +29,8 @@ a {
   color: grey;
 }
 
+
+
 .section-1,
 .section-2,
 .section-3,
@@ -40,7 +42,18 @@ a {
   padding-left: 5rem;
   padding-right: 5rem;
 }
-
+.button {
+  padding: 2rem;
+  width: 20rem;
+  background-color: white;
+  border: 1px solid rgb(22, 5, 5);
+  cursor: pointer;
+  transition: 1s ease;
+}
+.button:hover{
+  background-color: black;
+  color:white;
+}
 /* ******************************************    SECTION-1 ******************************************* */
 .section-1 {
   background-color: #ebedf3;
@@ -122,12 +135,24 @@ a {
 
 .section-2-card {
   width: 27rem;
+  overflow: hidden;
 }
 
-.section-2-card img {
+.section-2-card-img-container {
   width: 100%;
   height: 15rem;
+  overflow: hidden;
+}
+.section-2-img{
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.section-2-img:hover{
+  transform: scale(1.2);
 }
 
 .section-2-texts p {
@@ -164,7 +189,9 @@ a {
 
 .section-3-container img {
   width: 40rem;
+  height: 60rem;
   object-fit: cover;
+  object-position: center;
 }
 
 .section-3-description p {
@@ -186,13 +213,26 @@ a {
   margin: 2rem 0rem;
 }
 
-.button {
-  padding: 2rem;
-  width: 20rem;
-  background-color: white;
-  border: 1px solid rgb(22, 5, 5);
+.links{
+  display: flex;
+  gap:2rem;
   cursor: pointer;
 }
+
+.links p{
+  padding:0rem 1rem;
+}
+
+.middle-link{
+  border-left:1px solid grey;
+  border-right:1px solid grey;
+}
+
+.active-link{
+  text-decoration: underline;
+}
+
+
 
 /* ******************************************    SECTION-4 ******************************************* */
 .section-4 {
@@ -432,6 +472,10 @@ a {
   color: grey;
 }
 
+.image-small-device{
+  display: none;
+}
+
 /* ******************************************    SECTION-7******************************************* */
 
 .section-7 {
@@ -659,7 +703,7 @@ input {
     width: 100%;
   }
 
-  .section-2-card img {
+  .section-2-card-img-container {
     height: 30rem;
   }
 
@@ -675,12 +719,46 @@ input {
   .card-slider-container {
     width: 100%;
     display: flex;
-    overflow: show;
+    flex-direction: column;
     width: 100%;
+    gap:2rem;
+    padding:2rem;
+
+  }
+
+  .image-buttons{
+    display: none;
   }
 
   .slider-card {
-    padding: 3rem 5rem;
+    width:100%;
+    padding: 3rem 2rem;
+    position: static;
+    filter:blur(0rem)!important;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+
+  }
+
+  .card-slider-container{
+    padding: 0rem;
+  }
+
+  .slider-card.active{
+    transform: scale(1);
+  }
+
+  .slider-card p{
+    font-size: 1.4rem;
+    text-align: left;
+    
+  }
+
+  .slider-card h1{
+    font-size: 2rem
   }
 
   .slider-card.left {
@@ -695,6 +773,22 @@ input {
   .section-6 {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .image-small-device{
+    display: block;
+    width:6rem;
+    height:6rem;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+
+  .person-info{
+    display: flex;
+    width:100%;
+    flex-direction: row;
+    align-items: center;
+    gap:2rem;
   }
 }
 
@@ -717,6 +811,7 @@ input {
   .footer-wrapper {
     width: 100%;
   }
+
 }
 
 @media (max-width: 600px) {
@@ -769,15 +864,26 @@ input {
     text-align: left;
   }
 
-  .section-2-heading p{
+  .section-2-heading p {
     text-align: center;
   }
+
+
 }
 
-@media(max-width:500px){
+@media (max-width: 500px) {
+  .section-3-container img {
+    width: 100%;
+    height:50rem;
+  }
 
-  .section-3-container img{
-  width:100%;
+  .slider-card p{
+text-align: left;
+        
+      }
+
+ .slider-card {
+align-items: flex-start; 
   }
 
 }
